@@ -1,6 +1,6 @@
 <html>
   <head>
-    comp3121
+    <title>comp3121</title>
   </head>
   <body>
     TBD
