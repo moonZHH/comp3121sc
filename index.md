@@ -6,8 +6,8 @@
       var queryString = window.location.search.slice(1);
       // if query string exists
       if (queryString) {
-        queryString = queryString.split('q')[1];
-        alert(queryString);
+        qString = queryString.split('q')[1].split('&')[0];
+        alert(qString);
       }
     </script>
   </head>
