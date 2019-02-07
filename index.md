@@ -13,7 +13,7 @@
   </head>
   
   <body>
-    <a href="goal.html">goal<>
+    <a href="goal.html">goal</a>
     TBD
   </body>
 
