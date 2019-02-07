@@ -13,6 +13,7 @@
   </head>
   
   <body>
+    <link href="goal.html">
     TBD
   </body>
 
