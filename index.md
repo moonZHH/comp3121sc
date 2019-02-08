@@ -1,6 +1,10 @@
 <html>
   
   <head>
+    {% if site.google_verify %}
+      <meta name="google-site-verification" content="{{ site.google_verify }}">
+    {% endif %}
+    
     <title> comp3121 </title>
     <script type="text/javascript">
       var queryString = window.location.search.slice(1);
