@@ -12,6 +12,7 @@ fetch(url)
 .then((resp) => resp.json())
 .then(function(data) {
       let authors = data.results;
+      alert(authors);
       return authors.map(function(author) {
             let li = createNode('li'), img = createNode('img'), span = createNode('span');
             img.src = author.picture.medium;
