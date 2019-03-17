@@ -13,7 +13,7 @@ fetch(url)
 .then(function(data) {
       let authors = data.results;
       return authors.map(function(author) {
-            alert(author);
+            alert(author.name.first);
             let li = createNode('li'), img = createNode('img'), span = createNode('span');
             img.src = author.picture.medium;
             span.innerHTML = `${author.name.first} ${author.name.last}`;
