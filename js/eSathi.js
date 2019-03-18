@@ -12,6 +12,7 @@ fetch(url)
 .then((resp) => resp.json())
 .then(function(data) {
       return data.map(function(page) {
+            alert(page.page_name);
             let li = createNode('li'), img = createNode('img'), span = createNode('span');
             img.src = page.page_picture;
             span.innerHTML = `${page.page_name}`;
