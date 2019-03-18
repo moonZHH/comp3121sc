@@ -6,20 +6,17 @@ function append(parent, el) {
       return parent.appendChild(el);
 }
 
-const ul = document.getElementById('authors');
-const url = 'https://randomuser.me/api/?results=3';
+const ul = document.getElementById('esathi');
+const url = 'https://www.e-sathi.com/api.php?get=pages&query=unelmamovie';
 fetch(url)
 .then((resp) => resp.json())
 .then(function(data) {
-      let authors = data.results;
-      return authors.map(function(author) {
-            let li = createNode('li'), img = createNode('img'), span = createNode('span');
-            img.src = author.picture.medium;
-            span.innerHTML = `${author.name.first} ${author.name.last}`;
-            append(li, img);
-            append(li, span);
-            append(ul, li);
-      })
+      let li = createNode('li'), img = createNode('img'), span = createNode('span');
+      img.src = data.page_picture;
+      span.innerHTML = `${data.page_name}`;
+      append(li, img);
+      append(li, span);
+      append(ul, li);
 })
 .catch(function(error) {
       console.log(error);
