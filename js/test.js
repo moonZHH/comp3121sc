@@ -7,13 +7,13 @@ function append(parent, el) {
 }
 
 const ul = document.getElementById('authors');
-const url = 'https://randomuser.me/api/?results=10';
+const url = 'https://randomuser.me/api/?results=3';
 fetch(url)
 .then((resp) => resp.json())
 .then(function(data) {
+      alert(data);
       let authors = data.results;
       return authors.map(function(author) {
-            alert(author.name.first);
             let li = createNode('li'), img = createNode('img'), span = createNode('span');
             img.src = author.picture.medium;
             span.innerHTML = `${author.name.first} ${author.name.last}`;
