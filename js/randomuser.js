@@ -6,7 +6,7 @@ function append(parent, el) {
       return parent.appendChild(el);
 }
 
-const ul = document.getElementById('authors');
+const ul = document.getElementById('randomuser');
 const url = 'https://randomuser.me/api/?results=3';
 fetch(url)
 .then((resp) => resp.json())
