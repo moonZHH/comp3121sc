@@ -11,7 +11,6 @@ const url = 'https://randomuser.me/api/?results=3';
 fetch(url)
 .then((resp) => resp.json())
 .then(function(data) {
-      alert(data);
       let authors = data.results;
       return authors.map(function(author) {
             let li = createNode('li'), img = createNode('img'), span = createNode('span');
