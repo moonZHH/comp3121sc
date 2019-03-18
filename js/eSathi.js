@@ -11,6 +11,7 @@ const url = 'https://www.e-sathi.com/api.php?get=pages&query=unelmamovie';
 fetch(url)
 .then((resp) => resp.json())
 .then(function(data) {
+      alert(data.page_name);
       let li = createNode('li'), img = createNode('img'), span = createNode('span');
       img.src = data.page_picture;
       span.innerHTML = `${data.page_name}`;
