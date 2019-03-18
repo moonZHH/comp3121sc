@@ -1,3 +1,8 @@
+FB.getLoginStatus(function(response) {
+    alert(response.status)
+});
+
+/*
 FB.api(
     '/me/posts',
     'GET',
@@ -6,3 +11,4 @@ FB.api(
         alert(response);
     }
 );
+*/
