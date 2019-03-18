@@ -20,5 +20,6 @@ fetch(url)
       append(ul, li);
 })
 .catch(function(error) {
+      alert(error);
       console.log(error);
 });
