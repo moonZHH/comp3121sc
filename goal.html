@@ -24,11 +24,13 @@
         });
         FB.AppEvents.logPageView();
         
+	var page_id = '564897400669317';
+	var access_token = '332574250722556|VqjmBe8UKO_QCU-akXOGSzBCwOk';
         FB.api(
-          '/564897400669317/feed', 'get', 
+          '/' + page_id + '/feed', 'get', 
           {
             fields: 'permalink_url',
-            access_token: '332574250722556|VqjmBe8UKO_QCU-akXOGSzBCwOk'
+            access_token: access_token
           },
           function (response) {
             if (response && !response.error) {
