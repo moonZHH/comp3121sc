@@ -32,7 +32,13 @@
           },
           function (response) {
             if (response && !response.error) {
-              console.log(response.data);
+              let posts = response.data;
+              posts.map(function(post) {
+                var post_url = post.permalink_url;
+                var post_id = post.id;
+                console.log(post_url);
+                console.log(post_id);
+              })
             }
           }
         );
