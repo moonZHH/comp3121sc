@@ -23,6 +23,20 @@
           version    : 'v3.2'
         });
         FB.AppEvents.logPageView();
+        
+        FB.api(
+          '/564897400669317/feed', 'get', 
+          {
+            fields: 'permalink_url',
+            access_token: '332574250722556|VqjmBe8UKO_QCU-akXOGSzBCwOk'
+          },
+          function (response) {
+            alert(response);
+            if (response && !response.error) {
+              alert(response);
+            }
+          }
+        );
       };
 
       (function(d, s, id){
@@ -53,21 +67,6 @@
     <h1> facebook script </h1>
     <ul id="facebook"></ul>
     <!-- <script src="./js/facebook.js"></script> -->
-    <script>
-      FB.api(
-        '/564897400669317/feed', 'get', 
-        {
-          fields: 'permalink_url',
-          access_token: '332574250722556|VqjmBe8UKO_QCU-akXOGSzBCwOk'
-        },
-        function (response) {
-          alert(response);
-          if (response && !response.error) {
-            alert(response);
-          }
-        }
-      );
-    </script>
     
   </body>
 
