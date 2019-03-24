@@ -24,6 +24,20 @@
         });
         FB.AppEvents.logPageView();
         
+        // 
+        FB.getLoginStatus(function (response) {
+          if (response.status === 'connected') {
+            var uid = response.authResponse.userID;
+            var accessToken = response.authResponse.accessToken;
+            console.log(uid);
+            console.log(accessToken);
+          } else if (response.status === 'not_authorized') {
+            console.log("the user is logged in to Facebook, but has not authenticated your app.");
+          } else {
+            console.log("the user isn't logged in to Facebook");
+          }
+        });
+        
         FB.api(
           '/564897400669317/feed', 'get', 
           {
