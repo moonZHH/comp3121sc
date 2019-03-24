@@ -55,12 +55,13 @@
     <!-- <script src="./js/facebook.js"></script> -->
     <script>
       FB.api(
-        "/564897400669317/feed", "get", 
+        '/564897400669317/feed', 'get', 
         {
-          fields: "permalink_url",
-          access_token: "332574250722556|VqjmBe8UKO_QCU-akXOGSzBCwOk"
+          fields: 'permalink_url',
+          access_token: '332574250722556|VqjmBe8UKO_QCU-akXOGSzBCwOk'
         },
         function (response) {
+          alert(response);
           if (response && !response.error) {
             alert(response);
           }
