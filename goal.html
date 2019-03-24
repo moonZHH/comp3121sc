@@ -24,25 +24,11 @@
         });
         FB.AppEvents.logPageView();
         
-        // access token
-        var accessToken;
-        FB.getLoginStatus(function (response) {
-          if (response.status === 'connected') {
-            accessToken = response.authResponse.accessToken;
-            console.log(accessToken);
-          } else if (response.status === 'not_authorized') {
-            console.log("the user is logged in to Facebook, but has not authenticated your app.");
-          } else {
-            console.log("the user isn't logged in to Facebook");
-          }
-        });
-        
         FB.api(
           '/564897400669317/feed', 'get', 
           {
             fields: 'permalink_url',
-            // access_token: '332574250722556|VqjmBe8UKO_QCU-akXOGSzBCwOk'
-            access_token: accessToken
+            access_token: '332574250722556|VqjmBe8UKO_QCU-akXOGSzBCwOk'
           },
           function (response) {
             if (response && !response.error) {
