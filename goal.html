@@ -61,40 +61,15 @@
     </script>
     -->
 	  
-    <script>
+  <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '2318046415151142',
+      appId      : '573821616445091',
       xfbml      : true,
       version    : 'v3.2'
     });
     FB.AppEvents.logPageView();
-	 
-    var page_id = '105016500677849';
-	var access_token = '2318046415151142|MCtLmQcsKyoxus0MOLoUxUe-vJY';
-        FB.api(
-          '/' + page_id + '/feed', 'get', 
-          {
-            fields: 'permalink_url',
-            access_token: access_token
-          },
-          function (response) {
-            if (response && !response.error) {
-              let posts = response.data;
-              posts.map(function(post) {
-                var post_url = post.permalink_url;
-                var post_id = post.id;
-                console.log(post_url);
-                console.log(post_id);
-                
-		var root_div = document.getElementById("facebook");
-		var post_div = document.createElement("div");
-		root_div.innerHTML+="<div class=\"fb-post\" data-href=\"" + post_url + "\" data-width=\"500\"></div> <br></br>";
-              })
-            }
-          }
-        );
-      };
+  };
 
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
@@ -105,7 +80,7 @@
    }(document, 'script', 'facebook-jssdk'));
 </script>
 	  
-	  <div
+    <div
   class="fb-like"
   data-share="true"
   data-width="450"
