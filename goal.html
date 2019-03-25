@@ -69,9 +69,8 @@
       version    : 'v3.2'
     });
     FB.AppEvents.logPageView();
-  };
-	  
-  var page_id = '105927060586365';
+  
+    var page_id = '105927060586365';
 	var access_token = '573821616445091|JsovS3sEyfGtiJt2zqxq3qzUDjc';
         FB.api(
           '/' + page_id + '/feed', 'get', 
@@ -95,6 +94,7 @@
             }
           }
         );
+  };
 
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
