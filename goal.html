@@ -165,6 +165,10 @@
           videoEmbeddable: 'true'
         }).then(function(response) {
           console.log(response);
+          for (var idx = 0; i < 50; i++) {
+            var videoId = response.result.items[idx].id.videoId;
+            console.log(videoId);
+          }
         });
       }
     </script>
