@@ -166,7 +166,7 @@
           videoEmbeddable: 'true'
         }).then(function(response) {
           console.log(response);
-          for (var idx = 0; idx < 50; idx++) {
+          for (var idx = 0; idx < 5; idx++) {
             var videoId = response.result.items[idx].id.videoId;
             var root_div = document.getElementById("facebook");
             var post_div = document.createElement("div");
