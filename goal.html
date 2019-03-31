@@ -114,6 +114,7 @@
           authorizeButton.style.display = 'none';
           signoutButton.style.display = 'block';
           /* getChannel(); */
+          getVideo();
         } else {
           authorizeButton.style.display = 'block';
           signoutButton.style.display = 'none';
@@ -153,6 +154,16 @@
         });
       }
       */
+      
+      var KEYWORKD = "social network"
+      function getVideo() {
+        gapi.client.youtube.search.list({
+          q: KEYWORKD,
+          part: 'snippet'
+        }).then(function(response) {
+          console.log(response);
+        });
+      }
     </script>
     
     <script async defer src="https://apis.google.com/js/api.js"
