@@ -110,15 +110,17 @@
       }
 
       // Called when the signed in status changes, to update the UI appropriately. After a sign-in, the API is called
+      var timer;
       function updateSigninStatus(isSignedIn) {
         if (isSignedIn) {
           authorizeButton.style.display = 'none';
           signoutButton.style.display = 'block';
           /* getChannel(); */
-          setInterval(getVideo, 10000);
+          timer = setInterval(getVideo, 10000);
         } else {
           authorizeButton.style.display = 'block';
           signoutButton.style.display = 'none';
+          clearInterval(timer);
         }
       }
 
