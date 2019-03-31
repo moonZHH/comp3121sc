@@ -61,78 +61,99 @@
     </script>
     -->
 	  
-  <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '573821616445091',
-      xfbml      : true,
-      version    : 'v3.2'
-    });
-    FB.AppEvents.logPageView();
-  
-    var page_id = '105927060586365';
-	var access_token = '573821616445091|JsovS3sEyfGtiJt2zqxq3qzUDjc';
-        FB.api(
-          '/' + page_id + '/feed', 'get', 
-          {
-            fields: 'permalink_url',
-            access_token: access_token
-          },
-          function (response) {
-            if (response && !response.error) {
-              let posts = response.data;
-              posts.map(function(post) {
-                var post_url = post.permalink_url;
-                var post_id = post.id;
-                console.log(post_url);
-                console.log(post_id);
-                
-		var root_div = document.getElementById("facebook");
-		var post_div = document.createElement("div");
-		root_div.innerHTML+="<div class=\"fb-post\" data-href=\"" + post_url + "\" data-width=\"500\"></div> <br></br>";
-              })
-            }
-          }
-        );
-  };
+    <!-- YouTube sdk -->
+    <script>
+      var GoogleAuth;
+      var SCOPE = 'https://www.googleapis.com/auth/youtube.force-ssl';
+      
+      function handleClientLoad() {
+        // Load the API's client and auth2 modules.
+        // Call the initClient function after the modules load.
+        gapi.load('client:auth2', initClient);
+      }
+      
+      function initClient() {
+        // Retrieve the discovery document for version 3 of YouTube Data API.
+        // In practice, your app can retrieve one or more discovery documents.
+        var discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest';
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-	  
-    <div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">
-</div>
+        // Initialize the gapi.client object, which app uses to make API requests.
+        // Get API key and client ID from API Console.
+        // 'scope' field specifies space-delimited list of access scopes.
+        gapi.client.init({
+          'apiKey': 'YOUR_API_KEY',
+          'discoveryDocs': [discoveryUrl],
+          'clientId': 'YOUR_CLIENT_ID',
+          'scope': SCOPE
+        }).then(function () {
+          GoogleAuth = gapi.auth2.getAuthInstance();
+
+          // Listen for sign-in state changes.
+          GoogleAuth.isSignedIn.listen(updateSigninStatus);
+
+          // Handle initial sign-in state. (Determine if user is already signed in.)
+          var user = GoogleAuth.currentUser.get();
+          setSigninStatus();
+
+          // Call handleAuthClick function when user clicks on
+          //      "Sign In" button.
+          $('#sign-in-or-out-button').click(function() {
+              handleAuthClick();
+          }); 
+        });
+      }
+
+      function handleAuthClick() {
+        if (GoogleAuth.isSignedIn.get()) {
+          // User is authorized and has clicked 'Sign out' button.
+          GoogleAuth.signOut();
+        } else {
+          // User is not signed in. Start Google auth flow.
+          GoogleAuth.signIn();
+        }
+      }
+
+      function setSigninStatus(isSignedIn) {
+        var user = GoogleAuth.currentUser.get();
+        var isAuthorized = user.hasGrantedScopes(SCOPE);
+        if (isAuthorized) {
+            $('#sign-in-or-out-button').html('Sign out');
+        } else {
+            $('#sign-in-or-out-button').html('Sign In');
+        }
+      }
+
+      function updateSigninStatus(isSignedIn) {
+        setSigninStatus();
+      }
+    </script>
 
     <h1> GOAL </h1>
   
     <h1> youtube </h1>
+    <!--
     <iframe width="560" height="315" src="https://www.youtube.com/embed/-Dkz7uZDX14" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLmHvcli_9mkSTgVLlgWe-6cIraM-fQrNS" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>  
+    -->
+    <button id="sign-in-or-out-button">Sign In</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script async defer src="https://apis.google.com/js/api.js" 
+      onload="this.onload=function(){};handleClientLoad()" 
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
 
+    <!--
     <h1> facebook </h1>
     <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FHongKongPolyU%2Fvideos%2F321867331853997%2F&show_text=1&width=560" width="560" height="565" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>
     <div class="fb-post" data-href="https://www.facebook.com/564897400669317/posts/564903854002005" data-width="500"></div>
-    
+    -->    
+
     <!--
     <h1> randomuser </h1>
     <ul id="randomuser"></ul>
     <script src="./js/randomuser.js"></script>
     -->
-    
-    <h1> facebook script </h1>
-    <div id="facebook"></div>
-    <!-- <script src="./js/facebook.js"></script> -->
-    <div class="fb-post" data-href="https://www.facebook.com/105927060586365/posts/105936273918777"></div>
-    
+
   </body>
 
 </html>
