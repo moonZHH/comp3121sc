@@ -115,7 +115,7 @@
           authorizeButton.style.display = 'none';
           signoutButton.style.display = 'block';
           /* getChannel(); */
-          getVideo();
+          setInterval(getVideo, 10000);
         } else {
           authorizeButton.style.display = 'block';
           signoutButton.style.display = 'none';
