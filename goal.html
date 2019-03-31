@@ -159,7 +159,9 @@
       function getVideo() {
         gapi.client.youtube.search.list({
           q: KEYWORKD,
-          part: 'snippet'
+          part: 'snippet',
+          maxResults: '50',
+          videoEmbeddable: 'true'
         }).then(function(response) {
           console.log(response);
         });
