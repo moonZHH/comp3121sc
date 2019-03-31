@@ -71,6 +71,7 @@
     <button id="authorize-button" style="display: none;">Authorize</button>
     <button id="signout-button" style="display: none;">Sign Out</button>
     <pre id="content"></pre>
+    <div id="facebook"></div>
 	  
     <!-- YouTube sdk -->
     <script type="text/javascript">
@@ -167,7 +168,9 @@
           console.log(response);
           for (var idx = 0; idx < 50; idx++) {
             var videoId = response.result.items[idx].id.videoId;
-            console.log(videoId);
+            var root_div = document.getElementById("facebook");
+            var post_div = document.createElement("div");
+            root_div.innerHTML+="<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/" + videoId + " frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe> <br></br>";
           }
         });
       }
@@ -176,13 +179,7 @@
     <script async defer src="https://apis.google.com/js/api.js"
       onload="this.onload=function(){};handleClientLoad()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
-    </script>
-
-    <!--
-    <h1> facebook </h1>
-    <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FHongKongPolyU%2Fvideos%2F321867331853997%2F&show_text=1&width=560" width="560" height="565" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>
-    <div class="fb-post" data-href="https://www.facebook.com/564897400669317/posts/564903854002005" data-width="500"></div>
-    -->    
+    </script>  
 
     <!--
     <h1> randomuser </h1>
