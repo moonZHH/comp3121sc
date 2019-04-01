@@ -113,8 +113,8 @@
         if (isSignedIn) {
           authorizeButton.style.display = 'none';
           signoutButton.style.display = 'block';
-          getChannel();
-          /* timer = setInterval(getVideo, 10000); */
+          /* getChannel(); */
+          timer = setInterval(getVideo, 10000);
         } else {
           authorizeButton.style.display = 'block';
           signoutButton.style.display = 'none';
@@ -132,7 +132,7 @@
         gapi.auth2.getAuthInstance().signOut();
       }
 
-      //
+      /*
       // Append text to a pre element in the body, adding the given message to a text node in that element 
       // Used to display info from API response
       // @param {string} message Text to be placed in pre element
@@ -154,9 +154,9 @@
                     'Its title is \'' + channel.snippet.title + ', ' + 'and it has ' + channel.statistics.viewCount + ' views.');
         });
       }
-      //
+      */
       
-      /*
+      //
       var KEYWORKD = 'social network'
       function getVideo() {
         gapi.client.youtube.search.list({
@@ -180,7 +180,7 @@
 	  }
         });
       }
-      */
+      //
     </script>
     
     <script async defer src="https://apis.google.com/js/api.js"
