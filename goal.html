@@ -11,7 +11,9 @@
       gtag('js', new Date());
       gtag('config', 'UA-133629016-1');
     </script>
-	  
+  </head>
+  
+  <body>
     <!-- facebook sdk -->
     <script>
       window.fbAsyncInit = function() {
@@ -41,13 +43,13 @@
                 
                 var root_div = document.getElementById("facebook");
                 // var post_div = document.createElement("div");
-                // root_div.innerHTML+="<div class=\"fb-post\" data-href=\"" + post_url + "\" data-width=\"500\"></div>";
+                root_div.innerHTML+="<div class=\"fb-post\" data-href=\"" + post_url + "\" data-width=\"500\"></div>";
               })
             }
           }
         );
       };
-
+      /*
       (function(d, s, id){
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) {return;}
@@ -55,10 +57,11 @@
         js.src = "https://connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
+      */
     </script>
-  </head>
-  
-  <body>
+	  
+    <div id="fb-root"></div>
+    <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
     <h1> facebook </h1>
     <!-- <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div> -->
     <div id="facebook">
