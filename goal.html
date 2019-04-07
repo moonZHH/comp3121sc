@@ -44,6 +44,7 @@
                 var root_div = document.getElementById("facebook");
                 // var post_div = document.createElement("div");
                 root_div.innerHTML+="<div class=\"fb-post\" data-href=\"" + post_url + "\" data-width=\"500\"></div> <br>";
+		document.getElementById("test").data-href=post_url;
               })
             }
           }
@@ -70,6 +71,7 @@
     </div>
     <div id="facebook">
     </div>
+    <div id="test" class="fb-post" data-href="" data-width="500"></div>
     
     <!--
     <h1> GOAL </h1>
